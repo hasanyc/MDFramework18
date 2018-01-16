@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [testNG Framework]">
+  <parameter name="browser" value="Ch"/>
+  <parameter name="platform" value="Windows"/>
+  <test name="Chrome Browser test on Windows">
+    <parameter name="browser" value="Ch"/>
+    <parameter name="platform" value="Windows"/>
+    <packages>
+      <package name="e2eTest"/>
+    </packages>
+    <classes>
+      <class name="e2eTest.FailTheTest"/>
+      <class name="e2eTest.PassTheTest"/>
+      <class name="e2eTest.SkipTheTest"/>
+      <class name="e2eTest.TitleTest_PASS"/>
+    </classes>
+  </test> <!-- Chrome Browser test on Windows -->
+  <test name="Chrome Browser test on Windows(failed)">
+    <parameter name="browser" value="Ch"/>
+    <parameter name="platform" value="Windows"/>
+    <classes>
+      <class name="e2eTest.FailTheTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="tearDown"/>
+          <include name="FAIL_The_Test"/>
+          <include name="suiteStart"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- e2eTest.FailTheTest -->
+      <class name="e2eTest.TitleTest_PASS">
+        <methods>
+          <include name="setUp"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- e2eTest.TitleTest_PASS -->
+      <class name="e2eTest.SkipTheTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="SKIP_This_Test"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- e2eTest.SkipTheTest -->
+      <class name="e2eTest.PassTheTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- e2eTest.PassTheTest -->
+    </classes>
+  </test> <!-- Chrome Browser test on Windows(failed) -->
+</suite> <!-- Failed suite [testNG Framework] -->
